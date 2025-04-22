@@ -31,6 +31,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
     {{- end }}
   name: {{ template "kubernetes-dashboard.fullname" . }}-{{ .Values.web.role }}
+  namespace: {{ .Values.app.namespace }}
 spec:
   replicas: {{ .Values.web.scaling.replicas }}
   revisionHistoryLimit: {{ .Values.web.scaling.revisionHistoryLimit }}

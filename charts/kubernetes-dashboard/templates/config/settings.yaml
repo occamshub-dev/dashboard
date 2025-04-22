@@ -22,6 +22,7 @@ metadata:
   annotations:
     {{- include "kubernetes-dashboard.annotations" . | nindent 4 }}
   name: {{ template "kubernetes-dashboard.web.configMap.settings.name" . }}
+  namespace: {{ .Values.app.namespace }}
 data:
 {{- with .Values.app.settings.global }}
   settings: {{ toJson . | quote }}

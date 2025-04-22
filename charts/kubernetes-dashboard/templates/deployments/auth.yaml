@@ -26,6 +26,7 @@ metadata:
     app.kubernetes.io/name: {{ template "kubernetes-dashboard.name" . }}-{{ .Values.auth.role }}
     app.kubernetes.io/version: {{ .Values.api.image.tag }}
     app.kubernetes.io/component: {{ .Values.auth.role }}
+    namespace: {{ .Values.app.namespace }}
   annotations:
     {{- include "kubernetes-dashboard.annotations" . | nindent 4 }}
     {{- with .Values.auth.annotations }}

@@ -31,6 +31,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
     {{- end }}
   name: {{ template "kubernetes-dashboard.metrics-scraper.name" . }}
+  namespace: {{ .Values.app.namespace }}
 spec:
   type: {{ .Values.metricsScraper.service.type }}
   ports:

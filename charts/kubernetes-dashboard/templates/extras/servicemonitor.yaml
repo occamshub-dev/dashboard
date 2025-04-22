@@ -27,6 +27,7 @@ metadata:
     {{- with .Values.extras.serviceMonitor.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
+  namespace: {{ .Values.app.namespace }}
 spec:
   endpoints:
     - port: https

@@ -49,6 +49,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
     {{- end }}
   name: {{ template "kubernetes-dashboard.name" . }}
+  namespace: {{ .Values.app.namespace }}
 spec:
   {{- if not .Values.app.ingress.useDefaultIngressClass }}
   ingressClassName: {{ .Values.app.ingress.ingressClassName }}

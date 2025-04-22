@@ -21,6 +21,7 @@ metadata:
   annotations:
     {{- include "kubernetes-dashboard.annotations" . | nindent 4 }}
   name: {{ template "kubernetes-dashboard.fullname" . }}
+  namespace: {{ .Values.app.namespace }}
 spec:
   selector:
     matchLabels:
